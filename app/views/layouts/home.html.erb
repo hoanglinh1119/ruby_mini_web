@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hoanglinh</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+  <div class="container-fluid">
+    <%
+=begin%>
+ <p class="notice"><%= notice %></p> 
+<%
+=end%>
+    <%
+=begin%>
+ <p class="alert"><%= alert %></p> 
+<%
+=end%>
+  </div>
+  <%= render  "layouts/index/header" %>
+    <%= yield %>
+  <%= render  "layouts/index/footer" %>
+  </body>
+</html>

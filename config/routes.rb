@@ -1,8 +1,22 @@
 Rails.application.routes.draw do
   # , except:[:destroy] , only: [:index,]
+  devise_for :users, only: [ :registrations,
+                             :sessions,
+                             :passwords,
+                             :unlocks,
+                             :confirmation,
+                             :omniauth
+                            ], 
+          controllers: {registrations: 'users/registrations',
+                        sessions: 'users/sessions',
+                        passwords: 'users/passwords',
+                        unlocks: 'users/unlocks',
+                        confirmation: 'users/confirmation'
+                      }
+  
   root "static_pages#home"
-  devise_for :users
-  resources :roles, path: '/'
+
+  resources :roles, path: '/', default: {format: :js}
 
   # get '/new', to: 'roles#new', as: :new_role
   # post '/new_role', to: 'roles#create', as: :create_role
